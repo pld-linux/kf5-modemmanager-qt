@@ -2,17 +2,17 @@
 # Conditional build:
 %bcond_with	tests		# build without tests
 #
-%define		kdeframever	5.67
+%define		kdeframever	5.79
 %define		qtver		5.9.0
 %define		kfname		modemmanager-qt
 Summary:	Qt wrapper for ModemManager DBus API
 Name:		kf5-%{kfname}
-Version:	5.67.0
+Version:	5.79.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	f7b27e1fb53fbf7ccc3fabb3469b2ac3
+# Source0-md5:	7acca01fc2d463224b92c4095cfbcd69
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -74,9 +74,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%{_datadir}/qlogging-categories5/modemmanager-qt.categories
 %attr(755,root,root) %{_libdir}/libKF5ModemManagerQt.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5ModemManagerQt.so.6
+%{_datadir}/qlogging-categories5/modemmanagerqt.categories
+%{_datadir}/qlogging-categories5/modemmanagerqt.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
@@ -84,4 +85,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/ModemManagerQt
 %{_includedir}/KF5/modemmanagerqt_version.h
 %{_libdir}/cmake/KF5ModemManagerQt
-%{_libdir}/qt5/mkspecs/modules/qt_ModemManagerQt.pri
